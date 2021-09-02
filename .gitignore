@@ -1,0 +1,6 @@
+#Ignorar carpeta de librerias
+.env
+
+#Ignorar todos los archivos de video,imagen y audio
+*.mp4
+*.png
