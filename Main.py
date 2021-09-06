@@ -1,10 +1,7 @@
 import sys
 import urllib.request
 
-import PIL
-from PIL import ImageTk, Image
-
-from PyQt6.QtWidgets import QApplication, QLabel, QWidget
+from PyQt6.QtWidgets import QApplication, QWidget, QProgressBar
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QPixmap
 from PyQt6 import uic
@@ -21,6 +18,12 @@ class Main(QWidget):
         uic.loadUi('Views/ventana.ui', self)
         self.btnlink.clicked.connect(self.buscarVideo)
         self.btnVideo.clicked.connect(self.btnDescargarVideo)
+        self.btnAudio.clicked.connect(self.btnDescargarAudio)
+
+        self.progressBar = QProgressBar()
+        self.progressBar.setValue(0)
+        self.progressBar.setRange(0, 100) 
+
 
 
     def btnDescargarVideo(self):
@@ -28,10 +31,17 @@ class Main(QWidget):
         dw = video.getStream(self.listaVideo.currentIndex())
         dw.download()
 
+
+    def btnDescargarAudio(self):
+        global video
+        dw = video.getStreamAudio(self.listaAudio.currentIndex())
+        dw.download()
+
+
     def buscarVideo(self):
         global video
         link = self.link.toPlainText()
-        video = YT(link)
+        video = YT(link, self.progressBar)
 
         self.titulo.setText(video.getTitulo())
         self.getThumbnail(video)
@@ -63,6 +73,7 @@ class Main(QWidget):
         urllib.request.urlretrieve(videoData.getThumbnail(), 'thumbnail.png')
         pixmap = QPixmap('thumbnail.png')
         self.imagen.setPixmap(pixmap)
+
 
 
 
