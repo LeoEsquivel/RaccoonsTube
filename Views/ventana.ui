@@ -13,6 +13,81 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+    background-color: #FFF;
+    text-align: center;
+	font-family: Arial;
+
+}
+
+QTextEdit{
+	border-radius:4px 0px 0px 4px;
+	width:30em;
+	text-align: left;
+	border:2px solid #EEEEEE;
+	background: #EEEEEE;
+	color: #a7a7a7;
+	font-size: 20px;
+	outline:none;
+}
+
+QPushButton{
+    border-radius: 10px 10px 10px 10px;
+    border: 2px solid #0485FF;
+    background-color: #0485FF;
+    color: #FFF;
+}
+
+QPushButton:disabled {
+    background-color:#8d8d8d;
+    border: 2px solid #8d8d8d;
+    color: rgb(209, 209, 209);
+    }
+
+
+QComboBox {
+	border: 1px solid #0485FF;
+	border-radius: 3px;
+	padding: 1px 23px 1px 3px;
+	min-width: 6em;
+	color: #000;
+}
+
+QComboBox:disabled {
+	border: 1px solid #8d8d8d;
+	border-radius: 3px;
+	padding: 1px 23px 1px 3px;
+	min-width: 6em;
+	color: #8d8d8d;
+}
+
+QComboBox::drop-down {
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	width: 15px;
+    
+	border: 0px
+
+}
+
+QComboBox::down-arrow {
+    image: url(Resources/DropDownArrow.png);
+    width: 20px;
+    height: 20px;
+}
+ 
+QComboBox QAbstractItemView{
+	background-color: #FFF;
+	color: #3a3939;
+ 
+	selection-background-color: #3a3939;
+	selection-color: #3a3939;
+}
+
+
+</string>
+  </property>
   <widget class="QTextEdit" name="link">
    <property name="geometry">
     <rect>
@@ -21,6 +96,9 @@
      <width>401</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -34,6 +112,7 @@
    </property>
    <property name="font">
     <font>
+     <family>Arial</family>
      <pointsize>18</pointsize>
     </font>
    </property>
@@ -49,6 +128,9 @@
      <width>111</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Obtener</string>
@@ -87,7 +169,7 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>495</y>
+     <y>500</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -113,6 +195,9 @@
    </property>
   </widget>
   <widget class="QProgressBar" name="progressBar">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -150,11 +235,16 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>50</x>
      <y>260</y>
-     <width>521</width>
+     <width>821</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Arial;
+font-weight: bold;
+</string>
    </property>
    <property name="text">
     <string/>

@@ -3,14 +3,14 @@ from PyQt6.QtWidgets import QProgressBar
 
 class YT():
 
-    def __init__(self, link, progressBar):
+    def __init__(self, link):
         self.progressBar = QProgressBar()
         self.yt = YouTube(link, on_progress_callback=self.progress_func)
         self.titulo = self.yt.title
         self.thumbnail = self.yt.thumbnail_url
         self.streamsVideos = self.yt.streams.filter(mime_type="video/mp4").asc()
         self.streamsAudio = self.yt.streams.filter(mime_type="audio/mp4").desc()
-        self.progressBar = progressBar
+        #self.progressBar = progressBar
         
 
     def getTitulo(self):
